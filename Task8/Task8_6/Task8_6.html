@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	body,div,textarea,input,ul{
+		padding: 0px;
+		margin: 0px;
+		font-family: '微软雅黑';
+	}
+
+	.box{
+		width: 1100px;
+		height: 400px;
+		border: 15px solid #c0c0c0;
+		position: relative;
+		left: 80px;
+		top: 70px;
+	}
+	
+	.left{
+		width: 400px;
+		height: 350px;
+		border: 2px dashed #000;
+		position: absolute;
+		top: 14px;
+		left: 14px;
+		background: #efefd6;
+		font-size: 17px;
+		line-height: 22px;
+		padding: 10px;
+	}
+	.right{
+		width: 400px;
+		height: 350px;
+		border: 2px dashed #000;
+		position: absolute;
+		top: 14px;
+		right: 14px;
+		background: #5eeff7;
+		font-size: 21px;
+		padding: 10px;
+	}
+	.btn{
+		width: 186px;
+		height: 70px;
+		border: 7px solid #83bffa;
+		background: #fa6200;
+		position: absolute;
+		top: 7px;
+		left: 453px;
+		font-size: 24px;
+		color: #fffce9;
+	}
+	.label{
+		position: absolute;
+		top: 95px;
+		left: 520px;
+		font-size: 20px;
+	}
+	#manyBlock{
+		
+		list-style: none;
+		position: absolute;
+		top: 144px;
+		left: 475px;
+		display: none;
+	}
+	#manyBlock li{
+		width: 12px;
+		height: 15px;
+		background: #e8a520;
+		float: left;
+		margin-left: 6px;
+	}
+
+</style>
+<body>
+	<div class="box">
+			<textarea class="left" id="textLeft" >妙味课堂是一支充满温馨并且极富人情味的IT培训团队；2010-2011年，妙味深度关注web前端开发领域，为此精心研发一套灵活而充满趣味的JavaScript课程，2011~2013年，妙味精准研发出最新的HTML5/CSS3课程，并推出远程培训课程方案。尝试将线下优良的培训模式一直到远程网络培训中，希望尽最大的努力，将一种快乐愉悦的授课体验，结合HTML/CSS/JS知识点，精准传递给妙味课堂的每一位学员。</textarea>
+			<div>
+				<input class="btn" id='oBtn' type="button" name="" value="把文字右移">
+				<span class="label" id="oLabel">0/0</span>
+				<ul id="manyBlock">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="right" id="textRight"></div>
+	</div>
+
+	<script type="text/javascript">
+		var oLeft = document.getElementById('textLeft');		
+		var oBtn = document.getElementById('oBtn');
+		var oSpan = document.getElementById('oLabel');
+		var oUl = document.getElementById('manyBlock');
+		var aLi = oUl.getElementsByTagName('li');
+		var oRigt = document.getElementById('textRight');
+		var time = null;
+		var num = 0;
+		var j = 0;
+		oBtn.onclick=function(){
+			oUl.style.display = 'block';
+			clearInterval(time);
+			var str = oLeft.value;
+			var strL = str.length;
+			var arr = [];
+			var newstr = '';
+			num = num%2;
+			if(num == 0){
+				time = setInterval(function(){
+					arr = str.split('');
+					newstr = arr.splice(0,1).join('');
+					arr[0] = '';
+					str = arr.join('');
+					oLeft.value = str;
+					oRigt.innerHTML += newstr;	
+					oSpan.innerHTML = oRigt.innerHTML.length + '/' + strL;
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].style.background = '#e8a520';
+					}
+					aLi[j%aLi.length].style.background = 'red';
+					j++;
+					if (str == '') {
+						oUl.style.display = 'none';
+					}
+				},100);
+			}
+			if(num == 1){
+					clearInterval(time);
+				}
+			num ++;
+		}
+		
+	</script>
+</body>
+</html>

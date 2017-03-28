@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+</head>
+<body>
+	<button id="one" type="button" ">请求数据</button>
+	<div id="showMessage"></div>
+</body>
+<script type="text/javascript">
+	var one = document.getElementById('one');
+	one.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		var showMessage = document.getElementById('showMessage');
+		xhr.onreadystatechange=function(){
+ 			 if (xhr.readyState==4 && xhr.status==200){
+    		console.log(xhr.responseText)
+   			 }
+ 		}
+		xhr.open("get","http://139.199.196.101:808/test/getDate",true);
+		xhr.send(null);
+	}	
+</script>
+</html>

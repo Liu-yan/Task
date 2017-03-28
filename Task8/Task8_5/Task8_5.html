@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task8_5</title>
+	<style type="text/css">
+	body,input,div,ul,li,p{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+		border: none;
+	}
+	body{
+		background:#BEBEBE;
+	}
+	.article{
+		position: relative;
+	}
+	p{
+		width: 458px;
+ 		height: auto;
+ 		font-size: 14px;
+ 		line-height: 28px;
+ 		background: #fffffe;
+ 		margin-top:  40px;
+ 		margin-left: 215px;
+ 		padding: 20px;
+	}	
+	.button{
+		position: absolute;
+		top: 0px;
+		left: 730px;
+	}
+	li input{
+		width: 50px;
+		height: 25px;
+		background: #5B5B5B;
+		border: none;
+		margin-bottom: 3px;
+	}
+	#searchOne{
+		display: none;
+	}
+	#replaceOne{
+		display: none;
+	}
+	#operationBox{
+		width: 450px;
+		height: 60px;
+		padding: 20px;
+		background: #FFE4B5;
+		margin-left: 300px;
+		margin-top: 30px;
+		display: none;
+	}
+	.click input{
+		list-style: none;
+		width: 50px;
+		height: 30px
+		border:none;
+		background: #FFE4B5;
+
+	}
+	.line{
+		height: 2px;
+		background: #c58351;
+	}
+	#replace{
+		display: none;
+	}
+	span{
+		background: yellow;
+	}
+	</style>
+</head>
+<body>
+	<div class="article">
+		<P>
+			妙味课堂是一支充满温馨并且极富人情味的IT培训团队；2010-2011年，妙味深度关注web前端开发领域，为此精心研发一套灵活而充满趣味的JavaScript课程，2011~2013年，妙味精准研发出最新的HTML5/CSS3课程，并推出远程培训课程方案。尝试将线下优良的培训模式一直到远程网络培训中，希望尽最大的努力，将一种快乐愉悦的授课体验，结合HTML/CSS/JS知识点，精准传递给妙味课堂的每一位学员。
+		</P>
+		<ul class="button">
+			<li><input id="spread" type="button" name="" value="展开"></li>
+			<li><input id="searchOne" type="button" name="" value="查找"></li>
+			<li><input id="replaceOne" type="button" name="" value="替换"></li>
+		</ul>
+	</div>
+	<div id="operationBox">
+		<div class="click">
+			<input id="searchTwo" type="button" name="" value="查找">
+			<input id="replaceTwo" type="button" name="" value="替换">
+		</div>
+		<div class="line"></div>
+		<div id="operation">
+			<input  type="text" name="text">
+			<input id="searchThree" type="button" name="" value="查找">
+			<div id="replace">
+				<input type="text" name="replace">
+				<input id="replaceThree" type="button" name="" value="替换">
+			</div>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript">
+	var oP = document.getElementsByTagName('p')[0];
+	var oSpread = document.getElementById('spread');
+	var oSearchOne = document.getElementById('searchOne');
+	var oReplaceOne = document.getElementById('replaceOne');
+	var oSearchTwo = document.getElementById('searchTwo');
+	var oReplaceTwo = document.getElementById('replaceTwo');
+	var oOperationBox = document.getElementById('operationBox');
+	var oOperation = document.getElementById('operation');
+	var aInput = oOperation.getElementsByTagName('input');
+	var oReplace = document.getElementById('replace');
+	oSpread.onclick = function(){
+		oSearchOne.style.display = 'block';
+		oReplaceOne.style.display = 'block';
+		setTimeout(function() {
+			oSearchOne.style.display = 'none';
+			oReplaceOne.style.display = 'none';
+		},2000);
+	};
+	oSearchOne.onmouseover = function(){
+		oSearchOne.style.background = '#c58351';
+	};
+	oReplaceOne.onmouseover = function(){
+		oReplaceOne.style.background = '#c58351';
+	};
+	oSearchOne.onmouseout = function(){
+		oSearchOne.style.background = '#5B5B5B';
+	};
+	oReplaceOne.onmouseout = function(){
+		oReplaceOne.style.background = '#5B5B5B';
+	};
+	oSearchOne.onclick = oSearchTwo.onclick = function(){
+		oOperationBox.style.display = 'block';
+		aInput[1].style.display = 'inline';
+		oReplace.style.display = 'none';
+		aInput[1].onclick = function(){
+			var str = aInput[0].value;
+			if(!str){
+				return alert('请输入查找内容');
+			}
+			oP.innerHTML = oP.innerHTML.split(str).join('<span>' + str + '</span>');
+		}
+	};
+	oReplaceOne.onclick = oReplaceTwo.onclick = function(){
+		oOperationBox.style.display = 'block';
+		aInput[1].style.display = 'none';
+		oReplace.style.display = 'inline';
+		aInput[3].onclick = function(){
+			var str1 = aInput[0].value;
+			if(!str1){
+				return alert('请输入查找内容');
+			}
+			var ReplaceStr = aInput[2].value;
+			if(!ReplaceStr){
+				return alert('请输入要替换的文字');
+			}
+			oP.innerHTML = oP.innerHTML.split(str1).join('<span>' + ReplaceStr + '</span>');
+		}
+	}
+</script>
+</html>

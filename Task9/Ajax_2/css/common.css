@@ -1,0 +1,110 @@
+body,div,ul,li,input{
+	margin: 0;
+	padding: 0;
+}
+
+ul li { 
+list-style-type: none; 
+} 
+
+input{
+	border: none;
+}
+
+body{
+	font-family: "Microsoft Yahei";
+	width: 2542px;
+}
+
+p{
+	font-size: 24px;
+	margin:0px;
+}
+.img{
+	float:left;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix{
+	*zoom:1;
+}
+
+
+.baidu{
+	height: 109px;
+	position: relative;
+}
+
+.logo{
+	height: 66px;
+	width: 202px;
+	margin-left: 20px;
+	margin-top: 14px;
+	background: url("../images/1.png") no-repeat left;
+}
+.text-one{
+	width: 1076px;
+	height: 65px;
+	position: absolute;
+	left: 240px;
+	top:22px;
+	border: 2px solid black;
+}
+.btn{
+	width: 201px;
+	height:69px;
+	position: absolute;
+	left: 1322px;
+	top:22px;
+	background: #136aff;
+}
+.line{
+	height: 2px;
+	background: #e6e6e6;
+}
+
+.header-nav{
+	height: 74px;
+	background: #f6f6f6;
+	position: relative;
+}
+
+.header-nav ul{
+	margin-left: 270px;
+}
+
+.header-nav ul li{
+	display: inline-block;
+	font-size: 27px;
+	margin-top: 20px;
+	margin-right: 55px;
+}
+
+.content-left{
+	width: 1050px;
+	padding-left: 200px;
+	padding-top: 10px;
+}
+
+
+h3{
+	font-size: 30px;
+	margin-top: 60px;
+}
+
+.span-one{
+	width: 0;
+	height: 20px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid green ;
+	margin-top: 10px;
+}
