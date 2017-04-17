@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Task_3</title>
 	<style type="text/css">
-	body,div,p{
+	body,div,p {
 		margin: 0;
 		padding: 0;
 	}
-	.junmp{
+	.junmp {
 		border: 1px solid ;
 		padding: 20px;
 		width: 700px;
@@ -16,7 +16,7 @@
 		margin-top: 50px;
 		position: relative;
 	}
-	#menu li{
+	.menu1 li {
 		width: 200px;
 		height: 50px;
 		list-style: none;
@@ -26,23 +26,23 @@
 		background: green;
 	}
 
-	#img{
+	#img {
 		width: 500px;
 		height: 400px;
 	}
-	.picture{
+	.picture {
 		width: 700px;
 		height: 400px;
 		position: relative;
 	}
-	.picture ul{
+	.picture ul {
 		list-style: none;
 		position: absolute;
 		right: 10px;
 		top: 0px;
 	}
 
-	.picture li{
+	.picture li {
 		margin-top: 10px;
 		text-align: center;
 		font-size: 20px;
@@ -51,12 +51,20 @@
 		line-height: 100px;
 		background: #666666;
 	}
-	
+	.active-one {
+		border-radius: 15px;
+	}
+	.active-two {
+		background-color: blue;
+	}
+	.active-three {
+		background-color: red;
+	}
 	</style>
 </head>
 <body>	
 	<div class="junmp">
-		<ul id="menu">
+		<ul class="menu1" id="menu">
 			<li>远古圣衣</li>
 			<li>圣殿圣衣</li>
 		</ul>
@@ -72,28 +80,41 @@
 		</div>
 	</div>
 	<script type="text/javascript">	
-		var oMenu = document.getElementById('menu');
-		var oImg = document.getElementById('img');
-		var oText = document.getElementById('text');
+		var oMenu  = document.getElementById('menu');
+		var oImg   = document.getElementById('img');
+		var oText  = document.getElementById('text');
 		var aLiOne = oMenu.getElementsByTagName('li');
 		var aLiTwo = oText.getElementsByTagName('li');
-		var aImg=['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg','images/6.jpg'];
-		var aText = [['壮志凌云','多臂战王','绝地武士'],['梦境女王'],['嘻嘻嘻'],['齐天大圣']];
-		i=0;
-		j=0;
-		num=0;
-		var time = null;
-		time = setInterval(function(){
-			i++;
-			if (i%aLiTwo.length == 0) {
-				j++;
-				// for (var i = 0; i <aLiOne.length; i++) {
-				// 	// aLiOne[i].style.background = 'green';
-				// }
-				// aLiOne[j%aLiOne.length].style.background = 'blue';
+		var aImg   = [['images/1.jpg','images/2.jpg','images/3.jpg'],['images/4.jpg','images/5.jpg','images/6.jpg']];
+		var aText  = [['壮志凌云','多臂战王','绝地武士'],['梦境女王','圣光天使','齐天大圣']];
+		num = 0;
+		sum = 0;
+		var timer = null;
+		function TabMenu() {
+			for (var i = 0; i < aLiOne.length; i++) {
+				aLiOne[i].className = ''; //清空 
 			}
-			oImg.src = aImg[i%aImg.length];
-
+			aLiOne[num%aLiOne.length].className = 'active-one active-two'; //给样式
+		}
+		TabMenu();
+		function TabPic() {
+			for (var i = 0; i < aLiTwo.length; i++) {
+				aLiTwo[i].className = '';
+			}
+			aLiTwo[sum%aLiTwo.length].className = 'active-one active-three';
+			for (var i = 0; i < aLiTwo.length; i++) {
+				aLiTwo[i].innerHTML = aText[num%aLiOne.length][i]; //aText[0][0~2] aText[1][0~2]
+			}
+			oImg.src = aImg[num%aLiOne.length][sum%aLiTwo.length];
+		}
+		TabPic();
+		timer = setInterval(function(){
+			sum++;
+			if (sum%aLiTwo.length == 0) {  //sum加到4之后跳到菜单二
+				num++;
+				TabMenu();
+			}
+			TabPic();
 		},1000);
 		
 

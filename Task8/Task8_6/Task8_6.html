@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 </head>
 <style type="text/css">
-	body,div,textarea,input,ul{
+	body,div,textarea,input,ul {
 		padding: 0px;
 		margin: 0px;
 		font-family: '微软雅黑';
 	}
 
-	.box{
+	.box {
 		width: 1100px;
 		height: 400px;
 		border: 15px solid #c0c0c0;
@@ -20,7 +20,7 @@
 		top: 70px;
 	}
 	
-	.left{
+	.left {
 		width: 400px;
 		height: 350px;
 		border: 2px dashed #000;
@@ -32,7 +32,7 @@
 		line-height: 22px;
 		padding: 10px;
 	}
-	.right{
+	.right {
 		width: 400px;
 		height: 350px;
 		border: 2px dashed #000;
@@ -43,7 +43,7 @@
 		font-size: 21px;
 		padding: 10px;
 	}
-	.btn{
+	.btn {
 		width: 186px;
 		height: 70px;
 		border: 7px solid #83bffa;
@@ -54,13 +54,13 @@
 		font-size: 24px;
 		color: #fffce9;
 	}
-	.label{
+	.label {
 		position: absolute;
 		top: 95px;
 		left: 520px;
 		font-size: 20px;
 	}
-	#manyBlock{
+	#manyBlock {
 		
 		list-style: none;
 		position: absolute;
@@ -68,7 +68,7 @@
 		left: 475px;
 		display: none;
 	}
-	#manyBlock li{
+	#manyBlock li {
 		width: 12px;
 		height: 15px;
 		background: #e8a520;
@@ -99,14 +99,14 @@
 
 	<script type="text/javascript">
 		var oLeft = document.getElementById('textLeft');		
-		var oBtn = document.getElementById('oBtn');
+		var oBtn  = document.getElementById('oBtn');
 		var oSpan = document.getElementById('oLabel');
-		var oUl = document.getElementById('manyBlock');
-		var aLi = oUl.getElementsByTagName('li');
+		var oUl   = document.getElementById('manyBlock');
+		var aLi   = oUl.getElementsByTagName('li');
 		var oRigt = document.getElementById('textRight');
-		var time = null;
+		var time  = null;
 		var num = 0;
-		var j = 0;
+		var j   = 0;
 		oBtn.onclick=function(){
 			oUl.style.display = 'block';
 			clearInterval(time);
@@ -118,7 +118,7 @@
 			if(num == 0){
 				time = setInterval(function(){
 					arr = str.split('');
-					newstr = arr.splice(0,1).join('');
+					newstr = str.split('').splice(0,1).join('');
 					arr[0] = '';
 					str = arr.join('');
 					oLeft.value = str;
@@ -134,7 +134,7 @@
 					}
 				},100);
 			}
-			if(num == 1){
+			if(num == 1) {
 					clearInterval(time);
 				}
 			num ++;

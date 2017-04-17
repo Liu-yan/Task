@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>task8_2</title>
 	<style type="text/css">
-		.content{
+		.content {
 			width: 300px;
 			height: 300px;
 			margin-left: 300px;
@@ -13,11 +13,11 @@
 			border: 1px solid;
 
 		}
-		#numbers{
+		#numbers {
 			margin-top: 10px;
 			position: relative;
 		}
-		#numbers div{
+		#numbers div {
 			width: 50px;
 		 	height: 50px;
 		 	background: red;
@@ -38,60 +38,59 @@
 		<div id="numbers"></div>
 	</div>
 	<script type="text/javascript">
-	window.onload=function(){	
-	var oBtn=document.getElementById('button');
-	var oNumbers=document.getElementById('numbers');
-	var oDiv=oNumbers.getElementsByTagName('div');	
-	var onclick=true;
-	var j=0;
-	oBtn.onclick=function(){
-		if (onclick) {
-			for (var i = 0; i < 5; i++) {
-	 			oNumbers.innerHTML+='<div>'+i+'</div>';
-	 		}
-	   	
-	 	}
-	 	j=j%4;
-	 	if(j == 0) {
-	 		for(var i=0; i<3; i++) {
-	 			oDiv[i].style.left = 10 + i*50 + "px";
-	 			oDiv[i].style.top = (2-i)*50 + "px";
-	 		}
-	 		for(var i=3; i<5; i++) {
-	 			oDiv[i].style.left = 10 +i*50+ "px";
-	 			oDiv[i].style.top = (i-2)*50 + "px";
-	 		}
-	 	}else if(j == 1) {
-	 		for(var i=0; i<3; i++) {
-	 			oDiv[i].style.left= 10 + i*50 +"px";
-	 			oDiv[i].style.top = i*50 + "px";
-	 		}
-	 		for(var i=3; i<5; i++) {
-	 			oDiv[i].style.left = 10 + (4-i)*50 + "px";
-	 			oDiv[i].style.top = i*50 + "px";
-			}
-	 	}else if(j == 2) {
-	 		for(var i=0; i<3; i++) {
-	 			oDiv[i].style.left= 10 + i*50 +"px";
-	 			oDiv[i].style.top = i*50 + "px";
-	 		}
-	 		for(var i=3; i<5; i++) {
-	 			oDiv[i].style.left = 10+i*50+ "px";
-	 			oDiv[i].style.top = (4-i)*50 + "px";
-	 		}
-	 	}else if(j == 3) {
-	 		for(var i=0; i<3; i++) {
-	 			oDiv[i].style.left= 10 + (2-i)*50 +"px";
-	 			oDiv[i].style.top = i*50 + "px";
-	 		}
-	 		for(var i=3; i<5; i++) {
-	 			oDiv[i].style.left = 10+(i-2)*50+ "px";
-	 			oDiv[i].style.top = i*50 + "px";
-	 		}
-	 	}
-	 		j++;
-	}
-}
+	var oBtn     = document.getElementById('button');
+	var oNumbers = document.getElementById('numbers');
+	var oDiv     = oNumbers.getElementsByTagName('div');	
+	var onOff = true;		
+	var num = 0;		
+	oBtn.onclick = function(){		
+		if (onOff) {			
+			for (var i = 0; i < 5; i++) {				
+				oNumbers.innerHTML+='<div>'+i+'</div>';			
+			}			
+				onOff = false;		
+		}		
+		num = num%4;		
+		if(num == 0) {			
+			for(var i = 0; i < 3; i++) {				
+				oDiv[i].style.left = 10 + (2-i)*50 +"px";				
+				oDiv[i].style.top = i*50 + "px";			
+			}			
+			for(var i = 3; i < 5; i++) {				
+				oDiv[i].style.left = 10 +(i-2)*50 + "px";				
+				oDiv[i].style.top = i*50 + "px";			
+			}		
+		} else if(num == 1) {			
+			for(var i = 0; i < 3; i++) {				
+				oDiv[i].style.left = 10 + i*50 + "px";				
+				oDiv[i].style.top = (2-i)*50 + "px";			
+			}			
+			for(var i = 3; i < 5; i++) {				
+				oDiv[i].style.left = 10 + i*50+ "px";				
+				oDiv[i].style.top = (i-2)*50 + "px";			
+			}		
+		} else if(num == 2) {			
+			for(var i = 0; i < 3; i++) {				
+				oDiv[i].style.left = 10 + i*50 +"px";				
+				oDiv[i].style.top = i*50 + "px";		
+			}			
+			for(var i = 3; i < 5; i++) {				
+				oDiv[i].style.left = 10 + (4-i)*50 + "px";				
+				oDiv[i].style.top = i*50 + "px";			
+			}		
+		} else if(num == 3) {			
+			for(var i = 0; i < 3; i++) {				
+				oDiv[i].style.left = 10 + i*50 +"px";
+				oDiv[i].style.top = i*50 + "px";			
+			}			
+			for(var i = 3; i < 5; i++) {				
+				oDiv[i].style.left = 10 + i*50 + "px";	
+				oDiv[i].style.top = (4-i)*50 + "px";	
+			}		
+		}			
+		num++;	
+	}		
+
 
 	</script>
 </body>

@@ -8,17 +8,17 @@
 		margin: 0;
 		padding: 0;
 	}
-	ul{
+	ul {
 		list-style: none;
 		border: none;
 	}
-	body{
+	body {
 		background:#BEBEBE;
 	}
-	.article{
+	.article {
 		position: relative;
 	}
-	p{
+	p {
 		width: 458px;
  		height: auto;
  		font-size: 14px;
@@ -28,25 +28,25 @@
  		margin-left: 215px;
  		padding: 20px;
 	}	
-	.button{
+	.button {
 		position: absolute;
 		top: 0px;
 		left: 730px;
 	}
-	li input{
+	li input {
 		width: 50px;
 		height: 25px;
 		background: #5B5B5B;
 		border: none;
 		margin-bottom: 3px;
 	}
-	#searchOne{
+	#searchOne {
 		display: none;
 	}
-	#replaceOne{
+	#replaceOne {
 		display: none;
 	}
-	#operationBox{
+	#operationBox {
 		width: 450px;
 		height: 60px;
 		padding: 20px;
@@ -55,7 +55,7 @@
 		margin-top: 30px;
 		display: none;
 	}
-	.click input{
+	.click input {
 		list-style: none;
 		width: 50px;
 		height: 30px
@@ -63,14 +63,14 @@
 		background: #FFE4B5;
 
 	}
-	.line{
+	.line {
 		height: 2px;
 		background: #c58351;
 	}
-	#replace{
+	#replace {
 		display: none;
 	}
-	span{
+	span {
 		background: yellow;
 	}
 	</style>
@@ -103,16 +103,16 @@
 	</div>	
 </body>
 <script type="text/javascript">
-	var oP = document.getElementsByTagName('p')[0];
-	var oSpread = document.getElementById('spread');
-	var oSearchOne = document.getElementById('searchOne');
-	var oReplaceOne = document.getElementById('replaceOne');
-	var oSearchTwo = document.getElementById('searchTwo');
-	var oReplaceTwo = document.getElementById('replaceTwo');
+	var oP           = document.getElementsByTagName('p')[0];
+	var oSpread      = document.getElementById('spread');
+	var oSearchOne   = document.getElementById('searchOne');
+	var oReplaceOne  = document.getElementById('replaceOne');
+	var oSearchTwo   = document.getElementById('searchTwo');
+	var oReplaceTwo  = document.getElementById('replaceTwo');
 	var oOperationBox = document.getElementById('operationBox');
-	var oOperation = document.getElementById('operation');
-	var aInput = oOperation.getElementsByTagName('input');
-	var oReplace = document.getElementById('replace');
+	var oOperation   = document.getElementById('operation');
+	var aInput       = oOperation.getElementsByTagName('input');
+	var oReplace     = document.getElementById('replace');
 	oSpread.onclick = function(){
 		oSearchOne.style.display = 'block';
 		oReplaceOne.style.display = 'block';
